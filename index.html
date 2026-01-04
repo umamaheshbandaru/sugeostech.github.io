@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugeos Tech Systems - Modern Software Development Agency</title>
+    <meta name="description" content="Sugeos Tech Systems: Expert software development, embedded systems, and technology consulting from Hyderabad, India. Building scalable solutions for the future.">
+    <meta property="og:title" content="Sugeos Tech Systems">
+    <meta property="og:description" content="Leading software development agency specializing in embedded systems, C/C++ development, and modern web solutions.">
+    <meta property="og:image" content="https://sugeostech.github.io/assets/hero-bg.jpg">
+    <meta property="og:url" content="https://sugeostech.github.io">
+    <link rel="canonical" href="https://sugeostech.github.io">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f8fafc;
+            --accent: #f59e0b;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 10px 25px rgba(0,0,0,0.1);
+            --radius: 12px;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --primary: #3b82f6;
+            --secondary: #1e293b;
+            --bg: #0f172a;
+            --text: #f8fafc;
+            --text-light: #94a3b8;
+            --border: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            scroll-behavior: smooth;
+            transition: all 0.3s ease;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(15,23,42,0.95);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle, .admin-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover, .admin-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, white 0%, rgba(255,255,255,0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        /* Contact Form */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        input, textarea {
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            background: var(--primary-dark);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        /* Admin Dashboard */
+        .admin-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .admin-panel {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: var(--radius);
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            width: 800px;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .close-admin {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .admin-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .admin-tab {
+            padding: 1rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .admin-tab.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .admin-content {
+            display: none;
+        }
+
+        .admin-content.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+        }
+
+        .save-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            section {
+                padding: 4rem 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">Sugeos Tech</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div>
+                <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+                <button class="admin-btn" onclick="toggleAdmin()">Admin</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 id="hero-title">Innovative Software Solutions for Tomorrow's Challenges</h1>
+            <p id="hero-subtitle">Sugeos Tech Systems delivers cutting-edge embedded systems, C/C++ development, and scalable web solutions from Hyderabad, India. Trusted by global enterprises.</p>
+            <div class="cta-buttons">
+                <a href="#services" class="btn btn-primary">Explore Services</a>
+                <a href="#contact" class="btn btn-secondary">Get Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <h2>Our Core Services</h2>
+        <div class="services-grid" id="services-grid">
+            <!-- Dynamic content -->
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" style="background: var(--secondary);">
+        <h2>Featured Products</h2>
+        <div class="products-grid" id="products-grid">
+            <!-- Dynamic content -->
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2>About Sugeos Tech</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p id="about-text">Founded in Hyderabad, Telangana, Sugeos Tech Systems specializes in embedded systems programming, high-performance C/C++ development, and modern web technologies. With deep expertise in agriculture tech, IoT solutions, and quantum computing applications, we deliver scalable software that drives business growth.</p>
+            <p style="margin-top: 1.5rem; color: var(--text-light);">Our mission: Transform complex technical challenges into elegant, reliable software solutions.</p>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" style="background: var(--secondary);">
+        <h2>Latest Insights</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;" id="blog-grid">
+            <!-- Dynamic blog posts -->
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-grid">
+            <form id="contact-form">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+            <div>
+                <h3>Sugeos Tech Systems</h3>
+                <p><strong>Hyderabad, Telangana, India</strong></p>
+                <p>📧 contact@sugeostech.com</p>
+                <p>📱 +91 98765 43210</p>
+                <div style="height: 200px; background: #e5e7eb; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; margin-top: 1rem;">
+                    🗺️ Location Map
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sugeos Tech Systems</h3>
+                <p>Building the future of software development with expertise in embedded systems, C/C++ programming, and scalable solutions.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul style="list-style: none;">
+                    <li><a href="#home" style="color: var(--text-light);">Home</a></li>
+                    <li><a href="#services" style="color: var(--text-light);">Services</a></li>
+                    <li><a href="#products" style="color: var(--text-light);">Products</a></li>
+                    <li><a href="#blog" style="color: var(--text-light);">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Hyderabad, Telangana<br>India</p>
+                <p>contact@sugeostech.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#">📘</a>
+                    <a href="#">🐦</a>
+                    <a href="#">💼</a>
+                    <a href="#">📷</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sugeos Tech Systems. All rights reserved. Built with ❤️ for modern web standards.[web:1][web:3]</p>
+        </div>
+    </footer>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-overlay" id="admin-overlay">
+        <div class="admin-panel">
+            <div class="admin-header">
+                <h2>Admin Dashboard</h2>
+                <button class="close-admin" onclick="toggleAdmin()">&times;</button>
+            </div>
+            <div class="admin-tabs">
+                <button class="admin-tab active" onclick="switchTab('content')">Content</button>
+                <button class="admin-tab" onclick="switchTab('blog')">Blog</button>
+                <button class="admin-tab" onclick="switchTab('theme')">Theme</button>
+            </div>
+            
+            <!-- Content Tab -->
+            <div class="admin-content active" id="content-tab">
+                <div class="form-group">
+                    <label>Hero Title</label>
+                    <input type="text" id="admin-hero-title" value="Innovative Software Solutions for Tomorrow's Challenges">
+                </div>
+                <div class="form-group">
+                    <label>Hero Subtitle</label>
+                    <textarea id="admin-hero-subtitle">Sugeos Tech Systems delivers cutting-edge embedded systems, C/C++ development, and scalable web solutions from Hyderabad, India. Trusted by global enterprises.</textarea>
+                </div>
+                <div class="form-group">
+                    <label>About Text</label>
+                    <textarea id="admin-about-text">Founded in Hyderabad, Telangana, Sugeos Tech Systems specializes in embedded systems programming, high-performance C/C++ development, and modern web technologies. With deep expertise in agriculture tech, IoT solutions, and quantum computing applications, we deliver scalable software that drives business growth.</textarea>
+                </div>
+                <button class="save-btn" onclick="saveContent()">Save Content</button>
+            </div>
+
+            <!-- Blog Tab -->
+            <div class="admin-content" id="blog-tab">
+                <div style="margin-bottom: 1.5rem;">
+                    <h3>Add New Post</h3>
+                    <input type="text" id="new-post-title" placeholder="Post Title">
+                    <textarea id="new-post-content" placeholder="Post Content" rows="4"></textarea>
+                    <input type="text" id="new-post-slug" placeholder="Slug (e.g., my-post)">
+                    <button class="save-btn" onclick="addBlogPost()">Add Post</button>
+                </div>
+                <div id="blog-posts-list"></div>
+            </div>
+
+            <!-- Theme Tab -->
+            <div class="admin-content" id="theme-tab">
+                <div class="form-group">
+                    <label>Primary Color</label>
+                    <input type="color" id="theme-primary" value="#2563eb">
+                </div>
+                <div class="form-group">
+                    <label>Accent Color</label>
+                    <input type="color" id="theme-accent" value="#f59e0b">
+                </div>
+                <div class="form-group">
+                    <label>Theme</label>
+                    <select id="theme-mode">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                <button class="save-btn" onclick="saveTheme()">Save Theme</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Admin Password (simple protection)
+        const ADMIN_PASSWORD = 'sugeos2026';
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSiteData();
+            setupIntersectionObserver();
+            setupContactForm();
+            loadAdminData();
+        });
+
+        // Site Data Management
+        const siteData = {
+            hero: { title: '', subtitle: '' },
+            about: { text: '' },
+            services: [],
+            products: [],
+            blog: [],
+            theme: { primary: '#2563eb', accent: '#f59e0b', mode: 'light' }
+        };
+
+        function loadSiteData() {
+            const saved = localStorage.getItem('sugeosSiteData');
+            if (saved) {
+                Object.assign(siteData, JSON.parse(saved));
+            } else {
+                // Default data
+                siteData.hero.title = "Innovative Software Solutions for Tomorrow's Challenges";
+                siteData.hero.subtitle = "Sugeos Tech Systems delivers cutting-edge embedded systems, C/C++ development, and scalable web solutions from Hyderabad, India. Trusted by global enterprises.";
+                siteData.about.text = "Founded in Hyderabad, Telangana, Sugeos Tech Systems specializes in embedded systems programming, high-performance C/C++ development, and modern web technologies. With deep expertise in agriculture tech, IoT solutions, and quantum computing applications, we deliver scalable software that drives business growth. Our mission: Transform complex technical challenges into elegant, reliable software solutions.";
+                siteData.services = [
+                    { icon: '💻', title: 'Custom Software Development', desc: 'Full-cycle development using C/C++, Python, and modern frameworks for scalable enterprise solutions.' },
+                    { icon: '🔧', title: 'Embedded Systems', desc: 'Expert embedded programming for IoT devices, real-time systems, and hardware-software integration.' },
+                    { icon: '⚡', title: 'Performance Optimization', desc: 'Memory management, debugging, and optimization for high-performance C/C++ applications.' },
+                    { icon: '🌐', title: 'Web & Mobile Apps', desc: 'Modern responsive websites, PWAs, and cross-platform mobile applications.' },
+                    { icon: '🤖', title: 'AI & Machine Learning', desc: 'AI solutions, quantum computing libraries, and intelligent automation systems.' },
+                    { icon: '🛡️', title: 'DevOps & Cloud', desc: 'CI/CD pipelines, Azure DevOps, containerization, and cloud-native architectures.' }
+                ];
+                siteData.products = [
+                    { icon: '📱', title: 'AgriSense Pro', desc: 'IoT platform for precision agriculture monitoring and yield optimization.' },
+                    { icon: '⚙️', title: 'EmbedCore SDK', desc: 'High-performance embedded development toolkit with RTOS support.' },
+                    { icon: '🚀', title: 'QuantumKit', desc: 'Quantum computing library for C++ developers.' }
+                ];
+                siteData.blog = [
+                    { title: 'Future of Embedded Systems in 2026', slug: 'future-embedded-2026', content: 'Embedded systems are evolving rapidly with AI integration and edge computing...', excerpt: 'Discover how embedded systems are transforming industries...' },
+                    { title: 'C++20 Features Every Developer Should Know', slug: 'cpp20-features', content: 'C++20 brings powerful new features like concepts, modules, and coroutines...', excerpt: 'Master the latest C++ features...' }
+                ];
+                saveSiteData();
+            }
+            renderSite();
+            applyTheme();
+        }
+
+        function saveSiteData() {
+            localStorage.setItem('sugeosSiteData', JSON.stringify(siteData));
+        }
+
+        function renderSite() {
+            document.getElementById('hero-title').textContent = siteData.hero.title;
+            document.getElementById('hero-subtitle').textContent = siteData.hero.subtitle;
+            document.getElementById('about-text').textContent = siteData.about.text;
+
+            // Render services
+            const servicesGrid = document.getElementById('services-grid');
+            servicesGrid.innerHTML = siteData.services.map(service => `
+                <div class="service-card animate">
+                    <div class="service-icon">${service.icon}</div>
+                    <h3>${service.title}</h3>
+                    <p>${service.desc}</p>
+                </div>
+            `).join('');
+
+            // Render products
+            const productsGrid = document.getElementById('products-grid');
+            productsGrid.innerHTML = siteData.products.map(product => `
+                <div class="product-card animate">
+                    <div class="product-image">${product.icon}</div>
+                    <div style="padding: 2rem;">
+                        <h3>${product.title}</h3>
+                        <p>${product.desc}</p>
+                        <div style="margin-top: 1.5rem;">
+                            <span style="background: var(--primary); color: white; padding: 0.5rem 1rem; border-radius: var(--radius);">Starting at ₹99,999</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Render blog
+            const blogGrid = document.getElementById('blog-grid');
+            blogGrid.innerHTML = siteData.blog.slice(0, 3).map(post => `
+                <div class="service-card animate" onclick="openBlogPost('${post.slug}')" style="cursor: pointer;">
+                    <h3>${post.title}</h3>
+                    <p>${post.excerpt}</p>
+                    <span style="color: var(--primary);">Read more →</span>
+                </div>
+            `).join('');
+        }
+
+        // Theme Management
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            siteData.theme.mode = newTheme;
+            saveSiteData();
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        function applyTheme() {
+            const theme = siteData.theme.mode;
+            document.documentElement.setAttribute('data-theme', theme);
+            document.querySelector('.theme-toggle').textContent = theme === 'dark' ? '☀️' : '🌙';
+            
+            // Apply custom colors
+            document.documentElement.style.setProperty('--primary', siteData.theme.primary);
+            document.documentElement.style.setProperty('--accent', siteData.theme.accent);
+        }
+
+        function saveTheme() {
+            siteData.theme.primary = document.getElementById('theme-primary').value;
+            siteData.theme.accent = document.getElementById('theme-accent').value;
+            siteData.theme.mode = document.getElementById('theme-mode').value;
+            applyTheme();
+            saveSiteData();
+            alert('Theme saved!');
+        }
+
+        // Admin Functions
+        let isAuthenticated = false;
+
+        function toggleAdmin() {
+            const overlay = document.getElementById('admin-overlay');
+            if (!isAuthenticated) {
+                const password = prompt('Admin Password:');
+                if (password !== ADMIN_PASSWORD) {
+                    alert('Incorrect password');
+                    return;
+                }
+                isAuthenticated = true;
+            }
+            overlay.style.display = overlay.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.admin-content').forEach(c => c.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tab + '-tab').classList.add('active');
+        }
+
+        function loadAdminData() {
+            document.getElementById('admin-hero-title').value = siteData.hero.title;
+            document.getElementById('admin-hero-subtitle').value = siteData.hero.subtitle;
+            document.getElementById('admin-about-text').value = siteData.about.text;
+            document.getElementById('theme-primary').value = siteData.theme.primary;
+            document.getElementById('theme-accent').value = siteData.theme.accent;
+            document.getElementById('theme-mode').value = siteData.theme.mode;
+
+            renderBlogPostsList();
+        }
+
+        function saveContent() {
+            siteData.hero.title = document.getElementById('admin-hero-title').value;
+            siteData.hero.subtitle = document.getElementById('admin-hero-subtitle').value;
+            siteData.about.text = document.getElementById('admin-about-text').value;
+            renderSite();
+            saveSiteData();
+            alert('Content saved!');
+        }
+
+        function addBlogPost() {
+            const title = document.getElementById('new-post-title').value;
+            const content = document.getElementById('new-post-content').value;
+            const slug = document.getElementById('new-post-slug').value || title.toLowerCase().replace(/\s+/g, '-');
+
+            if (!title || !content) {
+                alert('Please fill title and content');
+                return;
+            }
+
+            siteData.blog.unshift({
+                title,
+                slug,
+                content,
+                excerpt: content.substring(0, 150) + '...',
+                date: new Date().toISOString().split('T')[0]
+            });
+
+            document.getElementById('new-post-title').value = '';
+            document.getElementById('new-post-content').value = '';
+            document.getElementById('new-post-slug').value = '';
+            
+            renderSite();
+            renderBlogPostsList();
+            saveSiteData();
+            alert('Blog post added!');
+        }
+
+        function renderBlogPostsList() {
+            const container = document.getElementById('blog-posts-list');
+            container.innerHTML = siteData.blog.map((post, index) => `
+                <div style="background: var(--secondary); padding: 1rem; border-radius: var(--radius); margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <strong>${post.title}</strong><br>
+                        <small>${post.excerpt}</small>
+                    </div>
+                    <div>
+                        <button class="save-btn" style="padding: 0.5rem 1rem; margin-right: 0.5rem;" onclick="editBlogPost(${index})">Edit</button>
+                        <button class="save-btn" style="background: #ef4444; padding: 0.5rem 1rem;" onclick="deleteBlogPost(${index})">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function editBlogPost(index) {
+            const post = siteData.blog[index];
+            document.getElementById('new-post-title').value = post.title;
+            document.getElementById('new-post-content').value = post.content;
+            document.getElementById('new-post-slug').value = post.slug;
+            
+            // Replace add with update
+            document.querySelector('#blog-tab .save-btn').onclick = () => updateBlogPost(index);
+        }
+
+        function updateBlogPost(index) {
+            const title = document.getElementById('new-post-title').value;
+            const content = document.getElementById('new-post-content').value;
+            const slug = document.getElementById('new-post-slug').value;
+
+            siteData.blog[index] = {
+                title,
+                slug,
+                content,
+                excerpt: content.substring(0, 150) + '...',
+                date: new Date().toISOString().split('T')[0]
+            };
+
+            document.querySelector('#blog-tab .save-btn').onclick = addBlogPost;
+            
+            renderSite();
+            renderBlogPostsList();
+            saveSiteData();
+            alert('Post updated!');
+        }
+
+        function deleteBlogPost(index) {
+            if (confirm('Delete this post?')) {
+                siteData.blog.splice(index, 1);
+                renderSite();
+                renderBlogPostsList();
+                saveSiteData();
+            }
+        }
+
+        // Animations
+        function setupIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.service-card, .product-card').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Contact Form
+        function setupContactForm() {
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We\'ll get back to you soon.');
+                this.reset();
+            });
+        }
+
+        function openBlogPost(slug) {
+            const post = siteData.blog.find(p => p.slug === slug);
+            if (post) {
+                alert(`Blog Post: ${post.title}\n\n${post.content}\n\n(This would open a full blog post page)`);
+            }
+        }
+
+        // Smooth scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255,255,255,0.98)';
+            } else {
+                header.style.background = 'rgba(255,255,255,0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
